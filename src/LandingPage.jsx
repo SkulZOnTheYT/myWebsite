@@ -5,7 +5,7 @@ function LandingPage() {
     <div className="flex flex-col min-h-screen bg-gray-100">
 
       {/* Hero Section */}
-      <section className="bg-gray-500 text-white py-20">
+      <section id="landing" className="bg-gray-500 text-white py-20 mt-20">
         <div className="container mx-auto text-center">
         <TypingText text="Welcome To My Website!" loop={true} />
           <p className="text-lg mb-8">Please click "Start" below to read
@@ -30,18 +30,7 @@ more about me and see some of my work!</p>
           </div>
         </div>
       </section>
-
-      {/* Testimoni */}
-      {/* ... */}
-
-      {/* Footer */}
-      <footer className="bg-gray-800 text-white py-6 mt-auto">
-        <div className="container mx-auto text-center">
-          <p>&copy; 2023 Nama Perusahaan Anda</p>
-        </div>
-      </footer>
-
-    </div>
+</div>
   );
 }
 

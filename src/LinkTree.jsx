@@ -4,7 +4,7 @@ import "./App.css"
 
 function LinktreePage() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100 max-w-full">
+    <div id="landing" className="flex flex-col items-center justify-center min-h-screen bg-gray-100 max-w-full">
       <div className="bg-white p-8 rounded-lg shadow-md w-96 max-w-full">
         {/* Profil */}
         <div className="flex flex-col items-center mb-6">
