@@ -1,8 +1,8 @@
 import vinkev from './assets/vinkev.png'
-import { Footer, Button, Drawer, Sidebar, TextInput, DarkThemeToggle, Flowbite } from "flowbite-react";
+import { Footer, Button, Drawer, Sidebar, DarkThemeToggle, Flowbite } from "flowbite-react";
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
-import {HiOutlineCollection, HiSearch, HiOutlineExternalLink, HiInformationCircle} from "react-icons/hi";
+import {HiOutlineCollection, HiOutlineExternalLink, HiInformationCircle} from "react-icons/hi";
 import LandingPage from './LandingPage'; 
 import Profile from './list';
 import LinktreePage from "./LinkTree";
@@ -47,9 +47,6 @@ function App() {
           >
             <div className="flex h-full flex-col justify-between py-2">
               <div>
-                <form className="pb-3 md:hidden">
-                  <TextInput icon={HiSearch} type="search" placeholder="Search" required size={32} />
-                </form>
                 <Sidebar.Items>
                   <Sidebar.ItemGroup>
                     <Sidebar.Collapse icon={HiOutlineCollection} label="ResourcePack">
