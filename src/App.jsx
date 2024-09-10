@@ -1,5 +1,5 @@
 import vinkev from './assets/vinkev.png'
-import { Footer, Button, Drawer, Sidebar, DarkThemeToggle, Flowbite } from "flowbite-react";
+import { Footer, Button, Drawer, Sidebar, Flowbite, DarkThemeToggle } from "flowbite-react";
 import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {HiOutlineCollection, HiOutlineExternalLink, HiInformationCircle} from "react-icons/hi";

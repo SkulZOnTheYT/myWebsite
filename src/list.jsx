@@ -85,22 +85,22 @@ const ListProject = () => {
   }, [searchTerm, selectedCategory]);
 
   return (
-    <div className="pt-20 px-4 bg-[#1e1e1e] text-white font-sans max-w-4xl mx-auto relative z-10"> 
-      <div className="flex justify-between items-center mb-5 border-b border-gray-700 pb-2"> 
-        <button className="px-4 py-2 bg-gray-800 rounded" onClick={() => navigate('/')}>Back</button>
+    <div className="pt-20 pb-10 px-4 bg-white dark:bg-[#1e1e1e] text-black dark:text-white font-sans  mx-auto relative z-10 w-full h-full"> 
+      <div className="flex mt-10 max-w-4xl justify-between items-center mb-5 border-b border-gray-700 pb-2"> 
+        <button className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded" onClick={() => navigate('/')}>Back</button>
         
         <input
           type="text"
           placeholder="Search..."
           value={searchTerm}
           onChange={handleSearch}
-          className="px-2 py-1 w-full mx-2 bg-gray-900 border border-gray-700 rounded text-white"
+          className="px-2 py-1 w-full mx-2 bg-gray-100 dark:bg-gray-900 border border-gray-700 rounded text-white"
         />
-        <button className="px-4 py-2 bg-gray-800 rounded" onClick={toggleFilter}>Filter</button>
+        <button className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded" onClick={toggleFilter}>Filter</button>
       </div>
 
       {filterVisible && (
-        <div className="flex flex-col absolute top-14 right-4 bg-gray-800 p-2 rounded shadow-md z-20" ref={dropdownRef}>
+        <div className="flex flex-col absolute top-25 right-4 bg-gray-100 dark:bg-gray-800 p-2 rounded shadow-md z-20" ref={dropdownRef}>
           <label>
             <input
               type="radio"
@@ -133,7 +133,7 @@ const ListProject = () => {
 
       {/* Loading Spinner */}
       {isLoading ? (
-        <div className="fixed inset-0 bg-black bg-opacity-70 flex justify-center items-center z-30">
+        <div className="fixed inset-0 bg-gray-200 dark:bg-black bg-opacity-70 flex justify-center items-center z-30">
           <div className="w-10 h-10 border-4 border-gray-200 border-t-gray-500 rounded-full animate-spin"></div>
         </div>
       ) : (
@@ -141,7 +141,7 @@ const ListProject = () => {
           <a
             key={index}
             href={item.link}
-            className="block bg-gray-900 mb-8 rounded-lg overflow-hidden shadow-md border border-gray-700 relative z-10 flex-col gap-3 p-4"
+            className="block max-w-4xl items-center bg-gray-100 dark:bg-gray-900 mb-8 rounded-lg overflow-hidden shadow-md border border-gray-700 relative z-10 flex-col gap-3 p-4"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -151,7 +151,7 @@ const ListProject = () => {
             </div>
             <div className="pt-2 border-t border-gray-700">
               <h3 className="my-2 text-xl font-bold">{item.title}</h3>
-              <p className="text-gray-400">{item.description}</p>
+              <p className="text-gray-500">{item.description}</p>
             </div>
           </a>
         ))

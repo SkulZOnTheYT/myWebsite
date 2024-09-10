@@ -34,8 +34,8 @@ function TypingText({ text, speed = 100, loop = true }) {
 
   return (
     <span className="whitespace-nowrap overflow-hidden">
-      <span className="inline-block animate-typing font-mono text-3xl font-black">{displayedText}</span>
-      <span className="inline-block animate-cursor font-mono text-3xl font-black">|</span>
+      <span className="inline-block animate-typing font-mono text-2xl font-black">{displayedText}</span>
+      <span className="inline-block animate-cursor font-mono text-2xl font-black">|</span>
     </span>
   );
 }
