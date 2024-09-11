@@ -4,15 +4,26 @@ import { useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import {HiOutlineCollection, HiOutlineExternalLink, HiInformationCircle} from "react-icons/hi";
 import LandingPage from './LandingPage'; 
+import KNZPage from './KNZPage';
 import Profile from './list';
 import LinktreePage from "./LinkTree";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
+
   const handleOpen = () => {
     setIsOpen(true);
   };
-  const handleClose = () => setIsOpen(false);
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
+  const handleLinkClick = () => {
+    if (isOpen) {
+      handleClose();
+    }
+  };
   
   return (
 <Router>
@@ -27,7 +38,7 @@ function App() {
                <path clip-rule="evenodd" fill-rule="evenodd" d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"></path>
             </svg>
          </Button>
-        <Link to="/" class="flex ms-2 md:me-24">
+        <Link to="/" class="flex ms-2 md:me-24" onClick={handleLinkClick}>
           <img src={vinkev} class="h-8 me-3" alt="VinKev Logo" />
           <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">VinKev Craft</span>
         </Link>
@@ -49,16 +60,16 @@ function App() {
               <div>
                 <Sidebar.Items>
                   <Sidebar.ItemGroup>
-                    <Sidebar.Collapse icon={HiOutlineCollection} label="ResourcePack">
-                      <Link to="/list"><Sidebar.Item>List</Sidebar.Item></Link>
-                      <Sidebar.Item>KNZ UI</Sidebar.Item>
+                    <Sidebar.Collapse icon={HiOutlineCollection} label="Minecraft">
+                      <Link to="/list" onClick={handleLinkClick}><Sidebar.Item>List</Sidebar.Item></Link>
+                      <Link to="/knz" onClick={handleLinkClick}><Sidebar.Item>KNZ UI</Sidebar.Item></Link>
                     </Sidebar.Collapse>
-                    <Link to="/link"><Sidebar.Item icon={HiOutlineExternalLink}>
+                    <Link to="/link" onClick={handleLinkClick}><Sidebar.Item icon={HiOutlineExternalLink}>
                       LinkTree
                    </Sidebar.Item></Link>
                   </Sidebar.ItemGroup>
                   <Sidebar.ItemGroup>
-                    <Sidebar.Item href="https://github.com/SkulZOnTheYT" icon={HiInformationCircle}>
+                    <Sidebar.Item href="https://github.com/SkulZOnTheYT" icon={HiInformationCircle} onClick={handleLinkClick}>
                       Help
                     </Sidebar.Item>
                   </Sidebar.ItemGroup>
@@ -72,6 +83,7 @@ function App() {
    <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/list" element={<Profile />} />
+      <Route path="/knz" element={<KNZPage/>} />
       <Route path="/link" element={<LinktreePage/>} />
    </Routes>
     <Footer container>
