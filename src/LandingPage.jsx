@@ -32,15 +32,15 @@ function LandingPage() {
               "Hello! My name is Kevin N.S. I enjoy playing Minecraft, and I might work as a JSON UI Developer for Minecraft Bedrock. I also like creating Minecraft-related content on TikTok and YouTube."
             </Blockquote>
         </div>
-        <div className="max-w-3xl mx-auto overflow-hidden">
-        <h1 className="text-center text-2xl font-bold mt-10">Minecraft Project</h1>
-          <Carousel slideInterval={3000} pauseOnHover className="w-screen h-screen sm:h-72 xl:h-screen 2xl:h-screen sm:w-72 xl:w-full 2xl:w-full">
+        <h1 className="text-center text-2xl xl:mt-0 font-bold mt-10 mb-10">Minecraft Project</h1>
+        <div className="relative w-full pt-[56.25%] max-w-3xl mx-auto overflow-hidden">
+          <Carousel slideInterval={3000} pauseOnHover className="absolute top-0 left-0 w-full h-full">
             <img src={KNZ} alt="KNZ UI" className="object-cover"/>
             <img src="https://img.youtube.com/vi/oP4TNL262xw/maxresdefault.jpg" alt="..." className="object-cover"/>
             <img src="https://img.youtube.com/vi/8KBUV4UfI1k/maxresdefault.jpg" alt="..." />
           </Carousel>
         </div>
-        <Button className="mx-auto" color="blue" pill><Link to="/list">View My Project</Link></Button>
+        <Button className="mx-auto mt-10 xl:mt-0" color="blue" pill><Link to="/list">View My Project</Link></Button>
       </section>
     </div>
   );

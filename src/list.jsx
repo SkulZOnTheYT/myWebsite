@@ -84,7 +84,8 @@ const ListProject = () => {
   }, [searchTerm, selectedCategory]);
 
   return (
-    <div className="pt-20 pb-10 px-4 bg-white dark:bg-[#1e1e1e] text-black dark:text-white font-sans  mx-auto relative z-10 w-full h-full"> 
+    <div className="bg-white dark:bg-[#1e1e1e] text-black dark:text-white">
+    <div className="pt-20 pb-10 px-4 font-sans mx-auto relative z-10 w-full h-full max-w-3xl"> 
       <div className="flex mt-10 max-w-4xl justify-between items-center mb-5 border-b border-gray-700 pb-2"> 
         <button className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded" onClick={() => navigate('/')}>Back</button>
         
@@ -131,31 +132,34 @@ const ListProject = () => {
       )}
 
       {/* Loading Spinner */}
-      {isLoading ? (
-        <div className="fixed inset-0 bg-gray-200 dark:bg-black bg-opacity-70 flex justify-center items-center z-30">
-          <div className="w-10 h-10 border-4 border-gray-200 border-t-gray-500 rounded-full animate-spin"></div>
-        </div>
-      ) : (
-        filteredData.map((item, index) => (
+    {isLoading ? (
+      <div className="fixed inset-0 bg-gray-200 dark:bg-black bg-opacity-70 flex justify-center items-center z-30">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-gray-900 dark:border-white"></div>
+      </div>
+    ) : (
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-8"> {/* Grid untuk mengatur tata letak */}
+        {filteredData.map((item, index) => (
           <a
             key={index}
             href={item.link}
-            className="block max-w-4xl items-center bg-gray-100 dark:bg-gray-900 mb-8 rounded-lg overflow-hidden shadow-md border border-gray-700 relative z-10 flex-col gap-3 p-4"
+            className="block bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden shadow-md border border-gray-700 relative z-10" // Hapus flex-col dan atur padding di dalam
             target="_blank"
             rel="noopener noreferrer"
           >
             <div className="relative">
-              <img src={item.img} alt={item.title} className="w-full h-auto object-cover border-b border-gray-700" />
+              <img src={item.img} alt={item.title} className="w-full h-auto object-cover border-b border-gray-700" /> {/* Atur tinggi gambar */}
               <div className="absolute top-2 left-2 bg-black bg-opacity-70 text-white px-2 py-1 rounded text-xs">{item.category}</div>
             </div>
-            <div className="pt-2 border-t border-gray-700">
-              <h3 className="my-2 text-xl font-bold">{item.title}</h3>
+            <div className="p-4 border-t border-gray-700"> {/* Pindahkan padding ke sini */}
+              <h3 className="text-xl font-bold">{item.title}</h3>
               <p className="text-gray-500">{item.description}</p>
             </div>
           </a>
-        ))
-      )}
+        ))}
+      </div>
+    )}
     </div>
+  </div>
   );
 };
 

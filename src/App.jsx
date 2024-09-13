@@ -10,15 +10,12 @@ import LinktreePage from "./LinkTree";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false);
-
   const handleOpen = () => {
     setIsOpen(true);
   };
-
   const handleClose = () => {
     setIsOpen(false);
   };
-
   const handleLinkClick = () => {
     if (isOpen) {
       handleClose();
