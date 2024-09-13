@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const ListProject = () => {
+function ListProject() {
   const navigate = useNavigate();
   const dropdownRef = useRef(null); // Referensi untuk dropdown
   const data = [

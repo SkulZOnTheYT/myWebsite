@@ -24,7 +24,8 @@ function App() {
   
   return (
 <Router>
-<Flowbite>   
+<Flowbite>
+<div className="dark:bg-[#1e1e1e]">
 <nav class="fixed top-0 z-50 w-full bg-white border-b border-gray-200 dark:bg-gray-800 dark:border-gray-700">
   <div class="px-3 py-3 lg:px-5 lg:pl-3">
     <div class="flex items-center justify-between">
@@ -103,7 +104,8 @@ function App() {
         <Footer.Copyright href="https://github.com/SkulZOnTheYT" by="SK Store™  All rights reserved." year={2024} />
       </div>
     </Footer>
-</Flowbite>
+  </div>
+  </Flowbite>
 </Router>
   );
 }
