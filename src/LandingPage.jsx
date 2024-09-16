@@ -1,5 +1,5 @@
 import TypingText from './utils/TypingText'
-import KNZ from './assets/knz.jpg'
+import {data} from './utils/listdata';
 import {Blockquote, Button, Carousel} from "flowbite-react";
 import { motion, useInView } from 'framer-motion';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
@@ -34,11 +34,20 @@ function LandingPage() {
         </div>
         <h1 className="text-center text-2xl xl:mt-0 font-bold mt-10 mb-10">Minecraft Project</h1>
         <div className="relative w-full pt-[56.25%] max-w-3xl mx-auto overflow-hidden">
+          {data.map(() => (
           <Carousel slideInterval={3000} pauseOnHover className="absolute top-0 left-0 w-full h-full">
-            <img src={KNZ} alt="KNZ UI" className="object-cover"/>
-            <img src="https://img.youtube.com/vi/oP4TNL262xw/maxresdefault.jpg" alt="..." className="object-cover"/>
-            <img src="https://img.youtube.com/vi/8KBUV4UfI1k/maxresdefault.jpg" alt="..." />
+            {data.map((slideItem, slideIndex) => ( 
+            <div key={slideIndex}>
+            <img 
+                key={slideIndex} 
+                src={slideItem.img} 
+                alt={slideItem.title} 
+                className="object-cover"
+              />
+            </div>
+            ))}
           </Carousel>
+          ))}
         </div>
         <Button className="mx-auto mt-10 xl:mt-0" color="blue" pill><Link to="/list">View My Project</Link></Button>
       </section>

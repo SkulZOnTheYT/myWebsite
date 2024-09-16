@@ -1,55 +1,28 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import {data} from './utils/listdata';
 
 function ListProject() {
   const navigate = useNavigate();
-  const dropdownRef = useRef(null); // Referensi untuk dropdown
-  const data = [
-    {
-      title: "Advanced Container",
-      description: "Quick loot Mode!!, Quick Move Item!!, Item Highlight!!",
-      img: "https://img.youtube.com/vi/oP4TNL262xw/maxresdefault.jpg",
-      link: "https://dimzproject.my.id/download/advanced-container",
-      category: "Addon",
-    },
-    {
-      title: "Another UI(discontinued)",
-      description: "F3 Update, Stats?, Dark Mode",
-      img: "https://img.youtube.com/vi/8KBUV4UfI1k/maxresdefault.jpg",
-      link: "https://dimzproject.my.id/download/another-ui",
-      category: "Addon",
-    },
-    {
-      title: "Available Inventory Viewer",
-      description: "0 inventory slots",
-      img: "https://img.youtube.com/vi/umXtdcOn4Jk/maxresdefault.jpg",
-      link: "https://dimzproject.my.id/download/available-inventory-viewer",
-      category: "Resource Pack",
-    },
-  ];
-
+  const dropdownRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState('');
-  const [selectedCategory, setSelectedCategory] = useState('All'); // Radio button, satu kategori saja
+  const [selectedCategory, setSelectedCategory] = useState('All');
   const [filterVisible, setFilterVisible] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // State loading
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Event handler untuk pencarian
   const handleSearch = (e) => {
     setSearchTerm(e.target.value);
   };
 
-  // Event handler untuk filter kategori
   const handleFilterChange = (category) => {
     setSelectedCategory(category);
-    setFilterVisible(false); // Tutup dropdown setelah memilih
+    setFilterVisible(false);
   };
 
-  // Toggle untuk menampilkan atau menyembunyikan dropdown
   const toggleFilter = () => {
     setFilterVisible(!filterVisible);
   };
 
-  // Close dropdown ketika klik di luar
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -63,22 +36,19 @@ function ListProject() {
     };
   }, [dropdownRef]);
 
-  // Filter data dan tampilkan loading
   const filteredData = data.filter((item) => {
     const matchesSearch = item.title.toLowerCase().includes(searchTerm.toLowerCase());
     const matchesCategory = selectedCategory === 'All' || item.category === selectedCategory;
     return matchesSearch && matchesCategory;
   });
 
-  // Simulasi loading
   useEffect(() => {
     if (isLoading) {
-      const timer = setTimeout(() => setIsLoading(false), 1000); // Simulasi delay 1 detik
+      const timer = setTimeout(() => setIsLoading(false), 1000);
       return () => clearTimeout(timer);
     }
   }, [isLoading]);
 
-  // Trigger loading ketika filter atau search berubah
   useEffect(() => {
     setIsLoading(true);
   }, [searchTerm, selectedCategory]);

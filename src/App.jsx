@@ -84,7 +84,7 @@ function App() {
       <Route path="/knz" element={<KNZPage/>} />
       <Route path="/link" element={<LinktreePage/>} />
    </Routes>
-    <Footer container>
+    <Footer container className="bg-slate-200">
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
           <Footer.Brand
