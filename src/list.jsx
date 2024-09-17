@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import {data} from './utils/listdata';
 
 function ListProject() {
@@ -54,8 +54,8 @@ function ListProject() {
   }, [searchTerm, selectedCategory]);
 
   return (
-    <div className="bg-white dark:bg-[#1e1e1e] text-black dark:text-white">
-    <div className="pt-20 pb-10 px-4 font-sans mx-auto relative z-10 w-full h-full max-w-3xl"> 
+    <div id="landing" className="bg-white dark:bg-[#1e1e1e] text-black dark:text-white">
+    <div className="pt-14 pb-10 px-4 font-sans mx-auto relative z-10 w-full h-full max-w-3xl"> 
       <div className="flex mt-10 max-w-4xl justify-between items-center mb-5 border-b border-gray-700 pb-2"> 
         <button className="px-4 py-2 bg-gray-100 dark:bg-gray-800 rounded" onClick={() => navigate('/')}>Back</button>
         
@@ -109,9 +109,9 @@ function ListProject() {
     ) : (
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-4 mt-8"> {/* Grid untuk mengatur tata letak */}
         {filteredData.map((item, index) => (
-          <a
+          <Link
             key={index}
-            href={item.link}
+            to={item.link}
             className="block bg-gray-100 dark:bg-gray-900 rounded-lg overflow-hidden shadow-md border border-gray-700 relative z-10" // Hapus flex-col dan atur padding di dalam
             target="_blank"
             rel="noopener noreferrer"
@@ -124,7 +124,7 @@ function ListProject() {
               <h3 className="text-xl font-bold">{item.title}</h3>
               <p className="text-gray-500">{item.description}</p>
             </div>
-          </a>
+          </Link>
         ))}
       </div>
     )}

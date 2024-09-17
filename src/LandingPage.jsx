@@ -2,7 +2,7 @@ import TypingText from './utils/TypingText'
 import {data} from './utils/listdata';
 import {Blockquote, Button, Carousel} from "flowbite-react";
 import { motion, useInView } from 'framer-motion';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useRef } from 'react';
 
 function LandingPage() {
@@ -11,7 +11,7 @@ function LandingPage() {
 
   return (
     <div className="flex flex-col min-h-screen bg-gray-100">
-      <section id="landing" className="bg-gray-500 text-white py-20 mt-20 h-screen w-full">
+      <section id="landing" className="bg-gray-500 text-white py-20 mt-14 h-screen w-full">
         <div className="container mx-auto text-center">
         <TypingText text="Welcome To My Website!" loop={true} />
           <motion.div className="text-lg mb-8"
